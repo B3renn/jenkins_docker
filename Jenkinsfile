@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        IMAGEN = "berenn/mse-calendar"
+        IMAGEN = "berenn/mundoseApache"
         USUARIO = 'USER_DOCKERHUB'
     }
     agent any

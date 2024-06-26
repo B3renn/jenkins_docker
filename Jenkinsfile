@@ -37,6 +37,15 @@ pipeline {
                 }
             }
         }
+        stage('Docker Push') {
+          agent any
+          steps {
+            withCredentials([usernamePassword(credentialsId: 'USER_DOCKERHUB', passwordVariable: 'USER_DOCKERHUBPassword', usernameVariable: 'USER_DOCKERHUB')]) {
+              sh "docker login -u ${env.USER_DOCKERHUB} -p ${env.USER_DOCKERHUBPassword}"
+              sh 'docker push $IMAGEN:$BUILD_NUMBER'
+            }
+          }
+        }
         stage('Clean Up') {
             steps {
                 sh "docker rmi $IMAGEN:$BUILD_NUMBER"

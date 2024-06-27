@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        IMAGEN = "berenn/mundoseApache"
+        IMAGEN = "berenn/mundose_apache"
         USUARIO = 'USER_DOCKERHUB'
     }
     agent any
